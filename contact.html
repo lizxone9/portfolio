@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Umidjon Mirzoyev Portfolio | Contact</title>
+    <link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet'>
+    <link rel="stylesheet" href="base.css">
+    <link rel="stylesheet" href="contact.css">
+</head>
+<body>
+
+    <header class="header">
+        <a href="index.html" class="logo">Umidjon.</a>
+        <nav class="navbar">
+            <a href="index.html" style="--i:1;">Home</a>
+            <a href="about.html" style="--i:2;">About</a>
+            <a href="portfolio.html" style="--i:3;">Portfolio</a>
+            <a href="contact.html" style="--i:4;" class="active">Contact</a>
+        </nav>
+    </header>
+
+    <section class="contact" id="contact">
+        <h2 class="heading">Men bilan <span>bog'laning</span></h2>
+        <form action="http://localhost:3000/send-message" method="POST">
+            <div class="input-box">
+                <input type="text" placeholder="To'liq ismingiz" name="name" required>
+                <input type="email" placeholder="Elektron pochtangiz" name="email" required>
+            </div>
+            <div class="input-box">
+                <input type="text" placeholder="Mobil raqamingiz" name="phone">
+                <input type="text" placeholder="Mavzu" name="subject">
+            </div>
+            <textarea name="message" id="" cols="30" rows="10" placeholder="Sizning xabaringiz" required></textarea>
+            <input type="submit" value="Xabar yuborish" class="btn">
+        </form>
+
+        <div class="contact-info">
+            <div class="contact-item">
+                <i class='bx bxs-phone'></i>
+                <p>Telefon / Telegram: +998 (99) 708 35 44</p>
+                <a href="https://t.me/umidjonmirzoev" target="_blank">@umidjonmirzoev</a>
+            </div>
+            <div class="contact-item">
+                <i class='bx bxl-instagram-alt'></i>
+                <p>Instagram: <a href="https://www.instagram.com/mirzoyev_umidjon?igsh=MW8ydDg2M21wbWhsaw==" target="_blank">@mirzoyev_umidjon</a></p>
+            </div>
+        </div>
+    </section>
+
+</body>
+</html>

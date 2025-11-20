@@ -1,0 +1,568 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800;900&display=swap');
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    text-decoration: none; /* Linklarning tagidagi chiziqni olib tashlaymiz */
+    border: none; /* Borderlarni standart holatga keltiramiz */
+    outline: none; /* Kontur chiziqlarni olib tashlaymiz */
+    font-family: 'Poppins', sans-serif;
+}
+
+*::selection {
+    background: #0ef;
+    color: #1f242d;
+}
+
+body {
+    background: #1f242d;
+    color: #fff;
+    overflow-x: hidden; /* Mobil uchun gorizontal scrollni oldini olish */
+    /* Scroll paytida fiksirlangan headerni hisobga olish */
+    scroll-padding-top: 75px; /* Header balandligiga yaqin qiymat */
+}
+
+.header {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    padding: 20px 10%;
+    background: transparent;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    z-index: 100;
+    transition: .3s; /* Scroll paytida rang o'zgarishi uchun */
+}
+
+/* Scroll paytida headerga fon berish */
+.header.scrolled {
+    background: #1f242d; /* Yoki boshqa fon rangi */
+    box-shadow: 0 .1rem .5rem rgba(0, 0, 0, .2);
+}
+
+
+.logo {
+    font-size: 25px;
+    color: #fff;
+    font-weight: 600;
+    cursor: default;
+    opacity: 0;
+    animation: slideRight 1s ease forwards;
+}
+
+.navbar a {
+    display: inline-block;
+    font-size: 18px;
+    color: #fff;
+    font-weight: 500;
+    margin-left: 35px;
+    transition: .3s;
+    opacity: 0;
+    animation: slideTop .5s ease forwards;
+    animation-delay: calc(.2s * var(--i));
+}
+
+.navbar a:hover,
+.navbar a.active {
+    color: #0ef;
+}
+
+/* Umumiy bo'lim stillari */
+section {
+    min-height: 100vh; /* Minimal balandlik */
+    padding: 100px 10% 50px; /* Yuqori/pastki va yon paddinglar */
+}
+
+/* Bo'lim sarlavhalari stili */
+.heading {
+    text-align: center;
+    font-size: 45px;
+    margin-bottom: 50px;
+    color: #fff;
+}
+
+.heading span {
+    color: #0ef;
+}
+
+
+/* ==================== HOME SECTION ==================== */
+.home {
+     /* Home sectionning asosiy stillari saqlanadi */
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    /* Padding yuqoridagi section stiliga o'tkazildi, lekin header tufayli moslashishi mumkin */
+    padding: 0 10% 0; /* Section paddingi yetarli bo'lishi kerak */
+}
+
+.home-content {
+    max-width: 600px;
+    width: 100%; /* Mobil uchun */
+    /* text-align: left; */ /* Agar o'rtaga tekislash kerak bo'lsa, center qiling */
+}
+
+.home-content h3 {
+    font-size: 32px;
+    font-weight: 700;
+    opacity: 0;
+    animation: slideBottom 1s ease forwards;
+    animation-delay: .7s;
+}
+
+.home-content h3:nth-of-type(2) {
+    margin-bottom: 30px;
+    animation: slideTop 1s ease forwards;
+    animation-delay: .7s;
+}
+
+.home-content h3 span {
+    color: #0ef;
+}
+
+.home-content h1 {
+    font-size: 56px;
+    font-weight: 700;
+    margin: -3px 0;
+    opacity: 0;
+    animation: slideRight 1s ease forwards;
+    animation-delay: 1s;
+}
+
+.home-content p {
+    font-size: 16px;
+    opacity: 0;
+    animation: slideLeft 1s ease forwards;
+    animation-delay: 1s;
+}
+
+.home-img img {
+    max-width: 450px;
+    margin-right: -20px;
+    opacity: 0;
+    animation: zoomIn 1s ease forwards, floatImage 4s ease-in-out infinite;
+    animation-delay: 2s, 3s;
+    width: 100%; /* Mobil uchun */
+    height: auto;
+    max-width: none; /* Mobil uchun */
+    margin: 0; /* Mobil uchun */
+}
+
+.social-media {
+     /* justify-content: center; */ /* Agar o'rtaga tekislash kerak bo'lsa, center qiling */
+}
+
+.social-media a {
+    display: inline-flex;
+    justify-content: center;
+    align-items: center;
+    width: 40px;
+    height: 40px;
+    background: transparent;
+    border: 2px solid #0ef;
+    border-radius: 50%;
+    font-size: 20px;
+    color: #0ef;
+    margin: 30px 15px 30px 0;
+    transition: .5s ease;
+    opacity: 0;
+    animation: slideLeft 1s ease forwards;
+    animation-delay: calc(.2s * var(--i));
+}
+
+.social-media a:hover {
+    background: #0ef;
+    color: #1f242d;
+    box-shadow: 0 0 20px #0ef;
+}
+
+.btn {
+    display: inline-block;
+    padding: 12px 28px;
+    background: #0ef;
+    border-radius: 40px;
+    box-shadow: 0 0 10px #0ef;
+    font-size: 16px;
+    color: #1f242d;
+    letter-spacing: 1px;
+    font-weight: 600;
+    opacity: 0;
+    animation: slideTop 1s ease forwards;
+    animation-delay: 2s;
+}
+
+
+/* ==================== ABOUT SECTION ==================== */
+.about {
+    display: flex; /* Flexbox layout for image and content */
+    justify-content: center;
+    align-items: center;
+    gap: 40px; /* Orasida masofa */
+    background: #323946; /* About section fon rangi */
+}
+
+.about-img {
+    /* Rasm konteyneri stili */
+    flex: 1; /* Mavjud bo'sh joyni egallashga harakat qiladi */
+    text-align: center; /* Ichidagi rasmni o'rtaga tekislash */
+}
+
+.about-img img {
+    max-width: 400px; /* Rasmning maksimal kengligi */
+    border-radius: 10px; /* Rasmga ozgina dumaloqlik */
+    box-shadow: 0 0 20px rgba(0, 0, 0, 0.3); /* Rasmga soya */
+    transition: .5s ease; /* Hover effekti uchun */
+    /* Mobil uchun moslashuv media queryda beriladi */
+}
+
+.about-img img:hover {
+     transform: scale(1.03); /* Hoverda kattalashish */
+     box-shadow: 0 0 30px #0ef; /* Hoverda soya o'zgarishi */
+}
+
+
+.about-content {
+    flex: 2; /* Matn konteyneri, rasmga nisbatan ko'proq joy egallaydi */
+    /* text-align: left; */ /* Agar o'rtaga tekislash kerak bo'lsa, center qiling */
+}
+
+.about-content h3 {
+    font-size: 25px; /* Kichik sarlavha stili */
+    margin-bottom: 10px;
+    color: #fff; /* Rangi */
+}
+
+.about-content p {
+    font-size: 16px; /* Paragraph stili */
+    color: #ccc; /* Rangi */
+    line-height: 1.6; /* Satrlar orasidagi masofa */
+    margin-bottom: 20px; /* Paragraphlar orasidagi masofa */
+}
+
+/* ==================== SKILLS SECTION ==================== */
+.skills {
+    background: #1f242d; /* Skills section fon rangi (Home bilan bir xil) */
+}
+
+.skills .heading {
+     /* Sarlavha stili yuqorida heading klassida berilgan */
+}
+
+.skills-container {
+    display: grid; /* Grid layout */
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); /* Responsiv grid: kamida 280px, maksimali mavjud joy */
+    gap: 30px; /* Kataklar orasidagi masofa */
+}
+
+.skills-box {
+    background: #323946; /* Katak orqa fon rangi */
+    padding: 40px 20px; /* Ichki padding */
+    border-radius: 10px;
+    text-align: center;
+    border: 2px solid #323946; /* Oddiy chegara */
+    transition: .5s ease; /* Hover effekti uchun transition */
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.2); /* Katakka soya */
+}
+
+.skills-box:hover {
+    border-color: #0ef; /* Hoverda chegara rangi */
+    transform: scale(1.02); /* Hoverda ozgina kattalashish */
+    box-shadow: 0 0 25px #0ef; /* Hoverda soya o'zgarishi */
+}
+
+.skills-box i {
+    font-size: 60px; /* Ikonka o'lchami */
+    color: #0ef; /* Ikonka rangi */
+    margin-bottom: 15px; /* Ikonka ostidan masofa */
+}
+
+.skills-box h3 {
+    font-size: 20px; /* Ko'nikma nomi sarlavhasi */
+    margin-bottom: 10px;
+    color: #fff;
+}
+
+.skills-box p {
+    font-size: 15px; /* Qo'shimcha matn (masalan, texnologiyalar) */
+    color: #ccc;
+}
+
+
+/* ==================== PORTFOLIO SECTION ==================== */
+.portfolio {
+     background: #323946; /* Fon rangi (About bilan bir xil) */
+     /* Kontent stilini keyin qo'shasiz */
+}
+.portfolio .heading {
+    /* Sarlavha stili heading klassida bor */
+}
+
+
+/* ==================== CONTACT SECTION ==================== */
+.contact {
+    background: #1f242d; /* Fon rangi (Skills/Home bilan bir xil)*/
+    /* Kontent stilini keyin qo'shasiz */
+}
+.contact .heading {
+    /* Sarlavha stili heading klassida bor */
+}
+
+
+/* ==================== FOOTER ==================== */
+/* Footer qismini qo'shishni unutmang */
+/*
+.footer {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    flex-wrap: wrap;
+    padding: 20px 10%;
+    background: #323946; // Yoki boshqa fon rangi
+}
+
+.footer-text p {
+    font-size: 16px;
+    color: #fff;
+}
+
+.footer-iconTop a {
+    display: inline-flex;
+    justify-content: center;
+    align-items: center;
+    padding: 10px;
+    background: #0ef;
+    border-radius: 8px;
+    transition: .5s ease;
+}
+
+.footer-iconTop a i {
+    font-size: 24px;
+    color: #1f242d;
+}
+*/
+
+
+/* ==================== KEYFRAMES ANIMATION ==================== */
+/* Animatsiyalar o'zgarishsiz qoladi */
+@keyframes slideRight {
+    0% { transform: translateX(-100px); opacity: 0;}
+    100% { transform: translateX(0); opacity: 1;}
+}
+@keyframes slideLeft {
+    0% { transform: translateX(100px); opacity: 0;}
+    100% { transform: translateX(0); opacity: 1;}
+}
+@keyframes slideTop {
+    0% { transform: translateY(100px); opacity: 0;}
+    100% { transform: translateY(0); opacity: 1;}
+}
+@keyframes slideBottom {
+    0% { transform: translateY(-100px); opacity: 0;}
+    100% { transform: translateY(0); opacity: 1;}
+}
+@keyframes zoomIn {
+    0% { transform: scale(0); opacity: 0;}
+    100% { transform: scale(1); opacity: 1;}
+}
+@keyframes floatImage {
+    0% { transform: translateY(0);}
+    50% { transform: translateY(-24px);}
+    100% { transform: translateY(0);}
+}
+
+
+/* ==================== RESPONSIVE DESIGN ==================== */
+
+/* Planshetlar va kichikroq qurilmalar uchun */
+@media (max-width: 1200px) {
+     .header {
+         padding: 20px 5%; /* Paddingni kamaytiramiz */
+     }
+     section {
+          padding: 80px 5% 50px; /* Section paddingini moslaymiz */
+     }
+     .home {
+         padding: 0 5% 0;
+     }
+     .navbar a {
+         margin-left: 20px;
+         font-size: 17px;
+     }
+     .heading {
+         font-size: 40px;
+     }
+     .home-content h1 {
+         font-size: 50px;
+     }
+     .home-content h3 {
+         font-size: 28px;
+     }
+     .about-img img {
+         max-width: 350px; /* About rasm o'lchami */
+     }
+     .about-content h3 {
+         font-size: 22px;
+     }
+     .about-content p {
+         font-size: 15px;
+     }
+     .skills-container {
+         grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); /* Grid o'lchami */
+         gap: 25px;
+     }
+      .skills-box {
+         padding: 30px 15px;
+     }
+      .skills-box i {
+         font-size: 50px;
+     }
+      .skills-box h3 {
+         font-size: 18px;
+     }
+      .skills-box p {
+         font-size: 14px;
+     }
+     /* Boshqa bo'limlar uchun ham moslashuvlar kerak bo'lishi mumkin */
+}
+
+
+/* Telefonlar uchun */
+@media (max-width: 768px) {
+     .menu-icon { /* Agar hamburger menyu qo'shilsa, buni ko'rsatish kerak */
+         display: block;
+     }
+     .navbar { /* Navigatsiyani yashiramiz yoki mobil menyu stilini beramiz */
+         /* display: none; */ /* Hozircha yashiramiz */
+
+         /* Agar mobil menyu stili berilsa: */
+         position: absolute;
+         top: 100%;
+         left: -100%; /* Ekrandan tashqariga */
+         width: 100%;
+         padding: 10px 5%;
+         background: #1f242d; /* Header foniga mos */
+         transition: .3s ease; /* Ochilish animatsiyasi */
+         box-shadow: 0 .5rem 1rem rgba(0,0,0,.2);
+     }
+
+     .navbar.active { /* JS orqali .active klassi qo'shilganda */
+        left: 0; /* Ekranga olib kiramiz */
+     }
+
+
+     .navbar a { /* Mobil menyu linklari stili */
+         display: block; /* Vertikal joylashadi */
+         margin: 10px 0; /* Vertikal masofa */
+         font-size: 20px;
+     }
+
+     .home {
+         flex-direction: column-reverse; /* Home section elementlarini vertikal joylashtiramiz (rasm tepada bo'ladi) */
+         text-align: center; /* Matnlarni o'rtaga tekislaymiz */
+         justify-content: center;
+         /* Padding section stilidan keladi */
+         padding-top: 100px; /* Header balandligidan ko'proq */
+     }
+      .home-content {
+          margin-bottom: 40px; /* Rasm bilan orasidagi masofa */
+          text-align: center;
+      }
+      .home-content h1 {
+          font-size: 45px;
+      }
+      .home-content h3 {
+          font-size: 24px;
+      }
+      .home-content p {
+          padding: 0 10px; /* Yonlaridan padding beramiz */
+      }
+      .social-media {
+          justify-content: center; /* Ikonkalarni o'rtaga tekislaymiz */
+          margin-top: 20px;
+      }
+      .btn {
+           margin-top: 30px;
+      }
+      .home-img img {
+          max-width: 80%; /* Rasm o'lchamini kichiklashtiramiz */
+          margin-top: 20px;
+      }
+
+     /* About section mobil moslashuvi */
+     .about {
+         flex-direction: column; /* Vertikal joylashadi */
+         text-align: center; /* Matnlarni o'rtaga tekislaymiz */
+     }
+     .about-img {
+         margin-bottom: 30px; /* Rasm ostidan masofa */
+     }
+     .about-img img {
+         max-width: 80%; /* Rasm o'lchami */
+     }
+     .about-content {
+         text-align: center; /* Matnlarni o'rtaga tekislaymiz */
+     }
+     .about-content p {
+          padding: 0 10px; /* Yonlaridan padding beramiz */
+     }
+
+      /* Skills section mobil moslashuvi */
+      .skills-container {
+          grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); /* Kichikroq grid */
+          gap: 15px;
+      }
+       .skills-box {
+         padding: 25px 10px;
+     }
+       .skills-box i {
+         font-size: 40px;
+     }
+      .skills-box h3 {
+         font-size: 16px;
+     }
+       .skills-box p {
+         font-size: 13px;
+     }
+}
+
+/* Juda kichik telefonlar uchun */
+@media (max-width: 450px) {
+     .logo {
+         font-size: 20px;
+     }
+     .heading {
+         font-size: 35px;
+         margin-bottom: 40px;
+     }
+     .home-content h1 {
+         font-size: 38px;
+     }
+      .home-content h3 {
+         font-size: 22px;
+     }
+     .about-content h3 {
+          font-size: 20px;
+     }
+      .social-media a {
+         width: 35px;
+         height: 35px;
+         font-size: 18px;
+         margin: 0 8px;
+     }
+      .btn {
+         padding: 10px 20px;
+         font-size: 14px;
+     }
+     .skills-container {
+         grid-template-columns: 1fr; /* Bitta ustun */
+     }
+      .skills-box {
+         padding: 20px;
+     }
+      .skills-box i {
+         font-size: 35px;
+     }
+}

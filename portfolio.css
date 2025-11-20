@@ -1,0 +1,101 @@
+/* ======================== PORTFOLIO SECTION ======================== */
+.portfolio {
+    background: #323946;
+    padding-bottom: 100px;
+}
+
+.portfolio .heading {
+    margin-bottom: 5rem;
+}
+
+.portfolio-container {
+    display: grid;
+    /* Katta ekranlar uchun 2 ustunli qilib o'zgartirdim, bu yozuvlar uchun ko'proq joy beradi */
+    grid-template-columns: repeat(2, 1fr); 
+    gap: 2.5rem;
+    padding: 0 10%;
+}
+
+.portfolio-box {
+    position: relative;
+    border-radius: 2rem;
+    box-shadow: 0 0 1rem rgba(0, 0, 0, 0.1);
+    overflow: hidden;
+    display: flex;
+}
+
+.portfolio-box img {
+    width: 100%;
+    transition: .5s ease;
+}
+
+.portfolio-box:hover img {
+    transform: scale(1.1);
+}
+
+.portfolio-box.in-development img {
+    filter: grayscale(100%);
+}
+
+.portfolio-box.in-development .portfolio-layer {
+    background: rgba(43, 62, 85, .8);
+}
+
+.portfolio-layer {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(rgba(0, 0, 0, .1), #0ef);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    text-align: center;
+    /* Paddingni kamaytirdim */
+    padding: 0 2rem; 
+    transform: translateY(100%);
+    transition: .5s ease;
+}
+
+.portfolio-box:hover .portfolio-layer {
+    transform: translateY(0);
+}
+
+.portfolio-layer h4 {
+    /* Sarlavha shriftini kichraytirdim */
+    font-size: 2.5rem; 
+}
+
+.portfolio-layer p {
+    /* Paragraf shriftini kichraytirdim */
+    font-size: 1.4rem; 
+    margin: .3rem 0 1rem;
+}
+
+.portfolio-layer a {
+    display: inline-flex;
+    justify-content: center;
+    align-items: center;
+    width: 5rem;
+    height: 5rem;
+    background: #fff;
+    border-radius: 50%;
+}
+
+.portfolio-layer a i {
+    font-size: 2.5rem;
+    color: #323946;
+}
+
+/* ======================== MOBIL MOSLASHUV (MEDIA QUERIES) ======================== */
+
+/* Oldingi 991px stilini olib tashladim, chunki endi 2 ustun standart */
+@media (max-width: 991px) {
+    /* Mobil uchun 1 ustun */
+    .portfolio-container {
+        grid-template-columns: 1fr; 
+        padding: 0 5%;
+    }
+}

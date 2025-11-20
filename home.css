@@ -1,0 +1,121 @@
+.home {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 0 10% 0;
+}
+
+.home-content {
+    max-width: 600px;
+    width: 100%;
+}
+
+.home-content h3 {
+    font-size: 32px;
+    font-weight: 700;
+    opacity: 0;
+    animation: slideBottom 1s ease forwards;
+    animation-delay: .7s;
+}
+
+.home-content h3:nth-of-type(2) {
+    margin-bottom: 30px;
+    animation: slideTop 1s ease forwards;
+    animation-delay: .7s;
+}
+
+.home-content h3 span {
+    color: #0ef;
+}
+
+.home-content h1 {
+    font-size: 56px;
+    font-weight: 700;
+    margin: -3px 0;
+    opacity: 0;
+    animation: slideRight 1s ease forwards;
+    animation-delay: 1s;
+}
+
+.home-content p {
+    font-size: 16px;
+    opacity: 0;
+    animation: slideLeft 1s ease forwards;
+    animation-delay: 1s;
+}
+
+.home-img img {
+    /* Rasmni kichraytiramiz */
+    max-width: 350px; 
+    margin-right: -20px;
+    opacity: 0;
+    animation: zoomIn 1s ease forwards, floatImage 4s ease-in-out infinite;
+    animation-delay: 2s, 3s;
+}
+
+.social-media {
+    /* justify-content: center; */
+}
+
+.social-media a {
+    display: inline-flex;
+    justify-content: center;
+    align-items: center;
+    width: 40px;
+    height: 40px;
+    background: transparent;
+    border: 2px solid #0ef;
+    border-radius: 50%;
+    font-size: 20px;
+    color: #0ef;
+    margin: 30px 15px 30px 0;
+    transition: .5s ease;
+    opacity: 0;
+    animation: slideLeft 1s ease forwards;
+    animation-delay: calc(.2s * var(--i));
+}
+
+.social-media a:hover {
+    background: #0ef;
+    color: #1f242d;
+    box-shadow: 0 0 20px #0ef;
+}
+
+/* Mobil moslashuv */
+@media (max-width: 1200px) {
+     .home { padding: 0 5% 0; }
+     .home-content h1 { font-size: 50px; }
+     .home-content h3 { font-size: 28px; }
+     .home-img img { max-width: 350px; }
+}
+
+@media (max-width: 768px) {
+     .home {
+         flex-direction: column-reverse;
+         text-align: center;
+         justify-content: center;
+         padding-top: 100px;
+     }
+     .home-content {
+         margin-bottom: 40px;
+         text-align: center;
+     }
+     .home-content h1 { font-size: 45px; }
+     .home-content h3 { font-size: 24px; }
+     .home-content p { padding: 0 10px; }
+     .social-media { justify-content: center; margin-top: 20px; }
+     .btn { margin-top: 30px; }
+     .home-img img { max-width: 80%; margin-top: 20px; }
+}
+
+@media (max-width: 450px) {
+     .home-content h1 { font-size: 38px; }
+     .home-content h3 { font-size: 22px; }
+     .social-media a {
+         width: 35px;
+         height: 35px;
+         font-size: 18px;
+         margin: 0 8px;
+     }
+     .btn { padding: 10px 20px; font-size: 14px; }
+}
